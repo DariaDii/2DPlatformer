@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHUD : MonoBehaviour
+public class PlayerUserInterface : MonoBehaviour
 {
     [SerializeField] private Wallet _wallet;
     [SerializeField] private Text _text;

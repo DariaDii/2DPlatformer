@@ -4,7 +4,7 @@ public class Mover : MonoBehaviour
 {
     [SerializeField] private float _speedX;
     [SerializeField] private float _jumpForce;
-    [SerializeField] Rigidbody2D _rigidbody;
+    [SerializeField] private Rigidbody2D _rigidbody;
 
     public void Jump()
     {

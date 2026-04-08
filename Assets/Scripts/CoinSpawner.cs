@@ -34,13 +34,13 @@ public class CoinSpawner : MonoBehaviour
     private void OnGetAction(Coin coin)
     {
         coin.gameObject.SetActive(true);
-        coin.DestroyCoin += ReturnToPool;
+        coin.Touched += ReturnToPool;
     }
 
     private void ActionOnRelease(Coin coin)
     {
         coin.gameObject.SetActive(false);
-        coin.DestroyCoin -= ReturnToPool;
+        coin.Touched -= ReturnToPool;
     }
 
     private void ReturnToPool(Coin coin)

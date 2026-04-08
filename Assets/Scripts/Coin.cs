@@ -3,16 +3,13 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public event Action<Coin> DestroyCoin;
+    public event Action<Coin> Touched;
 
-    private Wallet _wallet;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Wallet>(out _wallet))
+        if (collision.gameObject.TryGetComponent<Player>(out _))
         {
-            DestroyCoin?.Invoke(this);
-            _wallet.AddCoin();
+            Touched?.Invoke(this);
         }
     }
 }

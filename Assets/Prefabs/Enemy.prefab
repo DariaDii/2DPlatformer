@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4074905754859809360}
   - component: {fileID: 4859809678113692339}
   - component: {fileID: 5940869511834528423}
+  - component: {fileID: 7143398523393949439}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -197,3 +198,17 @@ MonoBehaviour:
   _endPoint: {fileID: 0}
   _speed: 1.5
   _spriteRenderer: {fileID: 6009084278076860070}
+--- !u!114 &7143398523393949439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009842241452568276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae215f1f08236f47b51d015bf6547e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimator
+  _animator: {fileID: 5928243641606600850}
+  _enemy: {fileID: 5940869511834528423}

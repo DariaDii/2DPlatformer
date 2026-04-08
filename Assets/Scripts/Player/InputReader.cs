@@ -1,28 +1,48 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour
 {
-    public const string Horizontal = "Horizontal";
-
-    [SerializeField] private KeyCode _keyCode;
+    private InputSystem_Actions _inputActions;
     private bool _isJump;
+
+    public event Action<float> Moving;
 
     public float Direction {  get; private set; }
 
+    private void Awake()
+    {
+        _inputActions = new InputSystem_Actions();
+
+        _inputActions.Enable();
+        _inputActions.Player.Jump.performed += JumpPerformed;
+    }
+
     private void Update()
     {
-        Direction = Input.GetAxis(Horizontal);
+        Vector2 move = _inputActions.Player.Move.ReadValue<Vector2>();
+        Direction = move.x;
 
-        if(Input.GetKeyDown(_keyCode))
-            _isJump = true;
-    }
+        Moving?.Invoke(Direction);
+    }    
 
-    public bool GetIsJump() => GetBoolAsTrigger(ref _isJump);
-
-    private bool GetBoolAsTrigger(ref bool value)
+    private void OnDisable()
     {
-        bool localValue = value;
-        value = false;
-        return localValue;
+        _inputActions.Player.Jump.performed -= JumpPerformed;
+        _inputActions.Disable();
     }
+
+    public bool GetIsJump()
+    {
+        bool result = _isJump;
+        _isJump = false;
+
+        return result;
+    }
+
+    private void JumpPerformed(InputAction.CallbackContext context)
+    {
+        _isJump = true;
+    }    
 }

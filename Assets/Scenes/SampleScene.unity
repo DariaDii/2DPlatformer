@@ -2722,10 +2722,6 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5940869511834528423, guid: ef2c124f1e6485f418bce31c9d0ff64d, type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 2135056761}
-    - target: {fileID: 5940869511834528423, guid: ef2c124f1e6485f418bce31c9d0ff64d, type: 3}
       propertyPath: _endPoint
       value: 
       objectReference: {fileID: 497993077}
@@ -3993,8 +3989,9 @@ GameObject:
   - component: {fileID: 1807480896}
   - component: {fileID: 1807480898}
   - component: {fileID: 1807480899}
-  - component: {fileID: 1807480901}
   - component: {fileID: 1807480902}
+  - component: {fileID: 1807480903}
+  - component: {fileID: 1807480904}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4077,7 +4074,7 @@ MonoBehaviour:
   _inputReader: {fileID: 1825084054}
   _mover: {fileID: 1807480896}
   _rotator: {fileID: 1807480899}
-  _animator: {fileID: 2041234756}
+  _wallet: {fileID: 1807480902}
 --- !u!114 &1807480898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4139,20 +4136,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.022727013, y: -0.9}
   m_Size: {x: 1.3636217, y: 2}
   m_Direction: 0
---- !u!114 &1807480901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807480892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27fa06ca6c4263844b33bee445ccf624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHUD
-  _wallet: {fileID: 1807480902}
-  _text: {fileID: 2136067304}
 --- !u!114 &1807480902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4165,6 +4148,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1868252ee4acde4bad94db7dfc123ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wallet
+--- !u!114 &1807480903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807480892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375e2eb6b1191cd4089aab9fc2c2b8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
+  _inputReader: {fileID: 1825084054}
+  _animator: {fileID: 2041234756}
+--- !u!114 &1807480904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807480892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fa06ca6c4263844b33bee445ccf624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUserInterface
+  _wallet: {fileID: 1807480902}
+  _text: {fileID: 2136067304}
 --- !u!1 &1821424326
 GameObject:
   m_ObjectHideFlags: 0
@@ -7257,7 +7268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5225ea45e3f78e243b0caf42298254b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputReader
-  _keyCode: 119
 --- !u!4 &1825084055
 Transform:
   m_ObjectHideFlags: 0
@@ -13347,11 +13357,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &2135056761 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5928243641606600850, guid: ef2c124f1e6485f418bce31c9d0ff64d, type: 3}
-  m_PrefabInstance: {fileID: 1317795480}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2136067302
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,18 @@
+using System;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _endPoint;
     [SerializeField] private float _speed;
-
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private Animator _animator;
 
     private Transform _currentPoint;
     private float _distanceToTargetPoint = 0.1f;
+    private bool _isMoving = false;
+
+    public event Action<bool> Patrolling;
 
     private void Start()
     {
@@ -23,8 +25,8 @@ public class EnemyController : MonoBehaviour
     }
 
     public void Patroll()
-    {
-        _animator.SetBool("IsWalk",true);
+    { 
+        _isMoving = true;
         transform.position = Vector3.MoveTowards(transform.position,_currentPoint.position,_speed*Time.deltaTime);
 
         Vector3 toTarget = _currentPoint.position - transform.position;
@@ -37,6 +39,8 @@ public class EnemyController : MonoBehaviour
             else
                 _currentPoint = _startPoint;
         }
+
+        Patrolling?.Invoke(_isMoving);
 
         TurnToCurrentPoint();
     }
